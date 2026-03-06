@@ -32,6 +32,10 @@ import os
 codespace_name = os.environ.get('CODESPACE_NAME')
 if codespace_name:
     ALLOWED_HOSTS = [f'{codespace_name}-8000.app.github.dev', 'localhost', '127.0.0.1']
+    CSRF_TRUSTED_ORIGINS = [
+        f'https://{codespace_name}-8000.app.github.dev',
+        f'https://{codespace_name}-3000.app.github.dev',
+    ]
 else:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
